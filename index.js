@@ -33,7 +33,7 @@ function viewCart() {
            // This is the last iteration of a cart with two elements
             response=`${response} and ${formatCartItem(cart[i])}`
       } else if ( i === (cart.length - 1) ) {
-           an two elements
+           
            response=`${response}, and ${formatCartItem(cart[i])}`
        } else {
           
