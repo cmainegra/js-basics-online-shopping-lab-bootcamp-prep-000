@@ -18,18 +18,30 @@ function addToCart(item) {
 }
 
 function viewCart() {
-  if (cart.length === 0) {
-    console.log("Your shopping cart is empty.")
-  } else {
-    var itemName = [];
-    for (let i = 0; i < cart.length; i++) {
-      for (var item in cart[i]) {
-      itemName.push(item + " at $" + cart[i][item]);
+ var cart=getCart()
+    var response='In your cart, you have'
+
+    if (cart.length === 0 ) {
+        console.log('Your shopping cart is empty.')
     }
-  }
-  console.log("In your cart, you have " + itemName[i] + ".");
-}
-}
+
+    for (var i=0; i < cart.length; i++) {
+        if (i === 0) {
+            // This is the first iteration
+           response=`${response} ${formatCartItem(cart[i])}`
+      } else if ( i === (cart.length - 1) && i === 1 ) {
+           // This is the last iteration of a cart with two elements
+            response=`${response} and ${formatCartItem(cart[i])}`
+      } else if ( i === (cart.length - 1) ) {
+           // This is the last iteration of a cart with more than two elements
+           response=`${response}, and ${formatCartItem(cart[i])}`
+       } else {
+           // This is an intermediate iteration
+           response=`${response}, ${formatCartItem(cart[i])}`
+       }
+   }
+   response=`${response}.`
+   console.log(response)
 
 function total() {
   // write your code here
