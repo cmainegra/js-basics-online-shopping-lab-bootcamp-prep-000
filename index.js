@@ -63,7 +63,7 @@ function removeFromCart(item) {
 }
 function placeOrder(cardNumber) {
  if (!cardNumber) {
-   return "Sorry, we don't have a credit cart on file for you.";
+   console.log("Sorry, we don't have a credit cart on file for you.");
    } 
     
     else {
