@@ -36,12 +36,13 @@ function viewCart() {
            // This is the last iteration of a cart with more than two elements
            response=`${response}, and ${formatCartItem(cart[i])}`
        } else {
-           // This is an intermediate iteration
+          
            response=`${response}, ${formatCartItem(cart[i])}`
        }
    }
    response=`${response}.`
    console.log(response)
+}
 
 function total() {
   // write your code here
