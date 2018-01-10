@@ -18,31 +18,30 @@ function addToCart(item) {
 }
 
 function viewCart() {
- var cart=getCart()
-    var response='In your cart, you have'
-
-    if (cart.length === 0 ) {
-        console.log('Your shopping cart is empty.')
+    if (cart.length === 0) {
+      return console.log("Your shopping cart is empty.");
     }
 
-    for (var i=0; i < cart.length; i++) {
-        if (i === 0) {
-           response=`${response} ${formatCartItem(cart[i])}`
-      } else if ( i === (cart.length - 1) && i === 1 ) {
-          
-            response=`${response} and ${formatCartItem(cart[i])}`
-      } else if ( i === (cart.length - 1) ) {
-           
-           response=`${response}, and ${formatCartItem(cart[i])}`
-       } else {
-          
-           response=`${response}, ${formatCartItem(cart[i])}`
-       }
-   }
-   response=`${response}.`
-   console.log(response)
-}
+    var returnStatement = "In your cart, you have";
 
+    if (cart.length === 1) {
+      returnStatement += ` ${Object.keys(cart[0])} at $${cart[0][Object.keys(cart[0])]}.`;
+       
+    } else if (cart.length === 2) {
+      returnStatement += ` ${Object.keys(cart[0])} at $${cart[0][Object.keys(cart[0])]} and ${Object.keys(cart[1])} at $${cart[1][Object.keys(cart[1])]}.`;
+    } else {
+      for (var i = 0; i < cart.length; i ++) {
+         if (i === (cart.length - 1) ) {
+           returnStatement += ` and ${Object.keys(cart[i])} at $${cart[i][Object.keys(cart[i])]}.`;
+         } else {
+          returnStatement += ` ${Object.keys(cart[i])} at $${cart[i][Object.keys(cart[i])]},`;
+         }
+      }
+    }
+
+
+    return console.log(returnStatement);
+ }
 function total() {
   // write your code here
 }
