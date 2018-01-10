@@ -38,10 +38,9 @@ function viewCart() {
          }
       }
     }
-
-
     return console.log(returnStatement);
  }
+ 
 function total() {
   // write your code here
 }
