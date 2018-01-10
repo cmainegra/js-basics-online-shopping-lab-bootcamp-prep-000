@@ -42,7 +42,11 @@ function viewCart() {
  }
  
 function total() {
-  // write your code here
+  var total = 0 
+  for (let i = 0; i < cart.length; i++) {
+  total += parseInt(`${cart[i][Object.keys(cart[i])]}`);
+}
+return total;
 }
 
 function removeFromCart(item) {
